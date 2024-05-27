@@ -188,13 +188,13 @@ class BigCard extends StatelessWidget {
     final style1 = theme.textTheme.displayMedium!.copyWith(
       color: theme.colorScheme.onPrimary);
       final style2 = theme.textTheme.displayMedium!.copyWith(
-      color: theme.colorScheme.onPrimary, fontWeight: FontWeight.bold);
+      color: theme.colorScheme.onPrimary, fontWeight: FontWeight.bold );
 
     return Card(
       color: theme.colorScheme.primary,
+      margin: const EdgeInsets.all(15),
       child: Padding(
-        padding: const EdgeInsets.all(20),
-        
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -204,7 +204,7 @@ class BigCard extends StatelessWidget {
               style: style1,
             ),
             Text(
-              pair.second,
+              capitalize(pair.second),
               semanticsLabel: pair.second,
               style: style2,              
             ),
@@ -250,4 +250,11 @@ class SettingsPage extends StatelessWidget {
       child: Text('Settings'),
     );
   }
+}
+
+String capitalize(String str) {
+  if (str.isEmpty) {
+    return str;
+  }
+  return str[0].toUpperCase() + str.substring(1);
 }
