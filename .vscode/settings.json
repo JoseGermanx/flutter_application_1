@@ -1,0 +1,5 @@
+{
+    "cmake.configureOnOpen": true,
+    "java.compile.nullAnalysis.mode": "automatic",
+    "cmake.sourceDirectory": "C:/Users/jgerm/OneDrive/Documentos/Estudios programacion/Flutter/flutter_application_1/windows/flutter"
+}
