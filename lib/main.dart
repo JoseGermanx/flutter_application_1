@@ -74,10 +74,10 @@ class _MyHomePageState extends State<MyHomePage> {
           appBar: AppBar(
               title: const Text('Words randomizer APP',
                 style: TextStyle(color: Colors.white, fontSize: 25.0, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
                 ),
                 backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
                 titleSpacing: 20.0,
+                centerTitle: true,
               actions: [
                 IconButton(
                   icon: Icon(Icons.refresh),
