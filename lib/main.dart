@@ -73,10 +73,10 @@ class _MyHomePageState extends State<MyHomePage> {
         return Scaffold(
           appBar: AppBar(
               title: const Text('Words randomizer APP',
-                style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),
+                style: TextStyle(color: Colors.white, fontSize: 25.0, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
                 ),
-                backgroundColor: Colors.blue[500],
+                backgroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
                 titleSpacing: 20.0,
               actions: [
                 IconButton(
@@ -162,7 +162,7 @@ class GeneratorPage extends StatelessWidget {
                 onPressed: () {
                   appState.getNext();
                 },
-                child: Text('Next'),
+                child: Text('Randomize'),
               ),
             ],
           ),
@@ -185,18 +185,30 @@ class BigCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final style = theme.textTheme.displayMedium!.copyWith(
-      color: theme.colorScheme.onPrimary,
-    );
+    final style1 = theme.textTheme.displayMedium!.copyWith(
+      color: theme.colorScheme.onPrimary);
+      final style2 = theme.textTheme.displayMedium!.copyWith(
+      color: theme.colorScheme.onPrimary, fontWeight: FontWeight.bold);
 
     return Card(
       color: theme.colorScheme.primary,
       child: Padding(
         padding: const EdgeInsets.all(20),
-        child: Text(
-          pair.asLowerCase,
-          style: style,
-          semanticsLabel: "${pair.first} ${pair.second}",
+        
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              pair.first,
+              semanticsLabel: pair.first,
+              style: style1,
+            ),
+            Text(
+              pair.second,
+              semanticsLabel: pair.second,
+              style: style2,              
+            ),
+          ],
         ),
       ),
     );
@@ -224,7 +236,7 @@ class FavoritesPage extends StatelessWidget {
         for (var pair in appState.favorites)
           ListTile(
             leading: Icon(Icons.favorite),
-            title: Text(pair.asLowerCase),
+            title: Text(pair.asCamelCase),
           ),
       ],
     );
